@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Javascript多线程 - Concurrent.Thread.js</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      cursor: pointer;
+      background: orange;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="test">测试点击</div>
+
+  <script src="http://peh2idi2i.bkt.clouddn.com/js/Concurrent.Thread.js"></script>
+  <script>
+    Concurrent.Thread.create(function () {
+      document.getElementById('test').addEventListener('click', function () {
+        alert(1);
+      });
+
+      /*这一段代码会占用CPU很长时间
+       *在打印期间点击事件依然会得到响应
+       */
+      for (var i = 0; i < 1000000; i++) {
+        console.log(i);
+      }
+    });
+  </script>
+</body>
+
+</html>
