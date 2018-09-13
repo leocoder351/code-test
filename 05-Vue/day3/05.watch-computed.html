@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue watch 和 computed</title>
+</head>
+
+<body>
+  <div id="app1">
+    <input type="text" v-model="val"> {{ fullName }}
+  </div>
+
+  <script src="./node_modules/vue/dist/vue.min.js"></script>
+  <script>
+    // watch 不好
+    // let vm = new Vue({
+    //   el: '#app1',
+    //   data: {
+    //     firstName: 'wang',
+    //     lastName: 'wei',
+    //     val: '',   // wang-val-wei
+    //     fullName: ''
+    //   },
+    //   watch: {
+    //     val(newVal, oldVal) {
+    //       this.fullName = `${this.firstName}-${this.val}-${this.lastName}`;
+    //     },
+    //     firstName(newVal, oldVal) {
+
+    //     },
+    //     lastName(newVal, oldVal) {
+          
+    //     }
+    //   }
+    // });
+
+    // 用computed
+    let vm = new Vue({
+      el: '#app1',
+      data: {
+        firstName: 'wang',
+        lastName: 'wei',
+        val: '',   // wang-val-wei
+      },
+      computed: {
+        fullName() {
+          return `${this.firstName}-${this.val}-${this.lastName}`;
+        }
+      }
+    });
+
+  </script>
+</body>
+
+</html>

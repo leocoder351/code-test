@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue 组件</title>
+  <style>
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- vue自带的组件 template component slot transition transition-group keep-alive -->
+    <input type="radio" v-model="radio" value="home">home
+    <input type="radio" v-model="radio" value="list">list
+
+    <!-- keep-alive 一般用作缓存：为的是后面的路由做准备 -->
+    <!-- 如果缓存了，就不会在走 beforeCreated created beforeMount mounted 钩子函数了 -->
+    <keep-alive>
+      <component :is="radio"></component>
+    </keep-alive>
+  </div>
+
+  <script src="./node_modules/vue/dist/vue.min.js"></script>
+  <script>
+    Vue.config.devtools = true;
+
+    let home = {
+      template: `<div>home</div>`,
+      beforeCreate() {console.log('beforeCreate home')}, 
+      created() {console.log('created home')}, 
+      beforeMount() {console.log('beforeMount home')}, 
+      mounted() {console.log('mounted home')},
+      beforeDestroy() {console.log('beforeDestroy home');},
+      destroyed() {console.log('destroyed home');}
+    };
+
+    let list = {
+      template: `<div>list</div>`,
+      beforeCreate() {console.log('beforeCreate list')}, 
+      created() {console.log('created list')}, 
+      beforeMount() {console.log('beforeMount list')}, 
+      mounted() {console.log('mounted list')},
+      beforeDestroy() {console.log('beforeDestroy list');},
+      destroyed() {console.log('destroyed list');}
+    };
+
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        radio: 'home'
+      },
+      components: {
+        home,
+        list
+      }
+    });
+  </script>
+</body>
+</html>

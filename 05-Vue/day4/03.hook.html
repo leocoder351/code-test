@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue 生命周期钩子函数</title>
+</head>
+<body>
+  <div id="app">
+
+  </div>
+
+  <script src="./node_modules/vue/dist/vue.min.js"></script>
+  <script>
+    // 生命周期：beforeCreate   created 
+    //          beforeMount    mounted 
+    //          beforeUpdate   updated 
+    //          beforeDestroy  destroyed
+    let vm = new Vue({
+      data: {
+        a: 1,
+        b: 2
+      },
+      beforeCreate() {  // 1. 此方法一般用不到
+        console.warn('beforeUpdate');
+      },
+      created() { // 2. 获取ajax，初始化操作
+        console.warn('created');
+      },
+      // 如果有template属性，会用模板替换掉外部的html，只要有此属性，app中的内容就没有任何意义了
+      // 只能有一个根元素，不能是文本节点
+      template: ` 
+        <div>
+          <h1>template</h1>
+          <h3>{{a}}</h3>
+        </div>      
+      `,
+      beforeMount() { // 4. 没有什么实际意义 
+        console.warn('beforeMount');
+      },
+      mounted() { // 5. 真实DOM渲染完了，可以操作DOM了
+        console.warn('mounted');
+      },
+      beforeUpdate() {  // 6. 一般用watch来替换，只监听页面使用到的数据变化
+        console.warn('beforeUpdate');
+      },
+      updated() {   // 7. 
+        console.warn('updated');
+      },
+      beforeDestroy() {   // 8. 可以清除定时器，或者清除事件绑定
+        console.warn('beforeDestroy');
+      },
+      destroyed() {   // 9.
+        console.warn('destroyed');
+      },
+      methods: {
+        sayA() {
+          console.log(this.a);
+        }
+      }
+    });
+    vm.$mount('#app')  // 3. 要保证有编译的el元素
+  </script>
+</body>
+</html>

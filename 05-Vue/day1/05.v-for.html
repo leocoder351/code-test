@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue v-for</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <!-- 要循环谁，就在谁的身上增加v-for -->
+      <!-- 默认是 value in arr / (value, idnex) in arr -->
+      <li v-for="(fruit, index) in fruits">
+        {{ fruit.name }} -- {{ index + 1 }}
+        <ul>
+          <li v-for="(color, childIndex) in fruit.colors">{{ index + 1 }}.{{ childIndex }} {{ color }}</li>
+        </ul>
+      </li>
+    </ul>
+
+    <ul>
+      <!-- 要循环谁，就在谁的身上增加v-for -->
+      <!-- 默认是 value of arr / (value, idnex) of arr -->
+      <li v-for="(fruit, index) of fruits">
+        {{ fruit.name }} -- {{ index + 1 }}
+        <ul>
+          <li v-for="(color, childIndex) in fruit.colors">{{ index + 1 }}.{{ childIndex }} {{ color }}</li>
+        </ul>
+      </li>
+    </ul>
+
+    <div v-for="str in 'aaaa'">{{ str }}</div>
+    <div v-for="num in 5">{{ num }}</div>
+    <div v-for="(value, key, index) in obj">{{ key }} : {{ value }} : {{ index }}</div>
+  </div>
+
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+  <script>
+    // 以前：拼字符串innerHTML
+    // vue提供了一个指令 v-for 解决循环问题的 更高效 会复用原有结构
+
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        obj: {
+          name: 'liu',
+          age: 20
+        },
+        fruits: [{
+          name: '香蕉',
+          colors: ['green', 'yellow']
+        }, {
+          name: '苹果',
+          colors: ['red', 'green', 'yellow']
+        }, {
+          name: '西瓜',
+          colors: ['pink']
+        }] 
+      }
+    });
+
+  </script>
+</body>
+</html>

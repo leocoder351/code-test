@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <title>vue 组件</title>
+  <style>
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 属性都用短横线‘-’ -->
+    <panel type="danger" @say-title="parent">
+      <div slot="title">这是一篇vue的使用</div>
+      <div slot="content">
+        <p>内容区</p>
+        <p>组件的属性传递</p>
+        <p>slot的用法</p>
+        <p>ref的使用</p>
+        <p>nextTick的用法</p>
+      </div>
+      <div slot="default">作者：leo</div>
+    </panel>
+  </div>
+
+  <template id="panel">
+    <div class="panel" :class="[color]">
+      <div class="panel-heading" ref="head">
+        <slot name="title"></slot>
+      </div>
+      <div class="panel-body">
+        <slot name="content"></slot>
+      </div>
+      <div class="panel-footer">
+        <slot>作者：匿名</slot>
+        <button @click="say">点我说标题</button>
+      </div>
+    </div>
+  </template>
+
+  <script src="./node_modules/vue/dist/vue.min.js"></script>
+  <script>
+    Vue.config.devtools = true;
+
+    let panel = {
+      template: '#panel',
+      props: {
+        type: { // 子组件不能更改父组件传递的属性
+          type: [String],
+          default: 'default'
+        }
+      },
+      computed: {
+        color() {
+          return 'panel-' + this.type;
+        }
+      },
+      methods: {
+        say() {
+          let title = this.$refs.head.innerText;
+          this.$emit('say-title', title);
+        }
+      }
+    };
+
+    let vm = new Vue({
+      el: '#app',
+      components: {
+        panel
+      },
+      methods: {
+        parent(title) {
+          alert(title);
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

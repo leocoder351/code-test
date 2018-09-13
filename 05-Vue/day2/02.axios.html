@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <title>vue axios</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- bootstrap 栅格化布局 默认12列（有一些框架可能是24列） -->
+    <!-- 常见的样式 基本样式 + 增强样式 -->
+    <!-- default 灰色 success 绿色 danger 红色 warning 黄色 info 浅蓝色 primary 蓝色 -->
+    <!-- vue的UI框架 iview elementui mintui -->
+    <div class="container">
+      <!-- 每一行又会拥有12列 -->
+      <div class="row">
+        <table class="table table-bordered table-hover">
+          <caption class="h2 text-warning text-center">购物车</caption>
+          <tr>
+            <th>全选 <input type="checkbox"></th>
+            <td>商品</td>
+            <td>单价</td>
+            <td>数量</td>
+            <td>小计</td>
+            <td>操作</td>
+          </tr>
+          <tr v-for="(product, index) in products">
+            <td><input type="checkbox" v-model="product.isSelected"></td>
+            <td><img v-bind:src="product.productCover" :title="product.productName" alt="image">{{ product.productInfo }}</td>
+            <td>{{ product.productPrice }}</td>
+            <td>
+              <!-- .number是让输入框的值变成数字类型 .lazy当输入框失去焦点时更新数据 -->
+              <input type="number" v-model.number="product.productCount">
+            </td>
+            <td>
+              <!-- 过滤器 filter 原数据不变的情况下，只改变现实的效果 管道符 | -->
+              {{ product.productPrice * product.productCount | toFixed(2) }}
+            </td>
+            <td><button class="btn btn-danger" @click="remove(product)">删除</button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="./node_modules/vue/dist/vue.min.js"></script>
+  <!-- 基于Promise -->
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
+  <script>
+    Vue.config.devtools = true;
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        products: []
+      },
+      created() {
+        // 在数据被初始化后会调用，this指向也是vm实例，钩子函数
+        // 专门用来发送ajax的方法
+        this.getData();
+      },
+      methods: {
+        getData() {
+          let _this = this;
+          axios.get('./carts.json').then(function (res) {
+            // success
+            _this.products = res.data;
+          }, function (err) {
+            // error
+            console.log(err);
+          });
+        },
+
+        remove(product) {
+          this.products = this.products.filter((item) => item !== product);
+        }
+      },
+      filters: {
+        // 可以有好多的自定义过滤器
+        toFixed(input, param1) {
+          // 这里的this指向的是window
+          // input代表的是管道符前的数据，param1代表的是tiFixed传入的参数
+          return '￥' + input.toFixed(param1);
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

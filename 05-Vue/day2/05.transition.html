@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue 动画</title>
+  <style>
+    #app>div {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+
+    .jw-enter {
+      opacity: 0;
+    }
+
+    .jw-enter-active {
+      transition: all 1s linear;
+    }
+
+    .jw-leave-active {
+      opacity: 0;
+      transition: all 1s linear;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-if="" v-show="" -->
+    <!-- 如果频繁的切换DOM，使用v-show，当数据一开始就确定下来有或者没有，不频繁切换使用v-if -->
+
+    <!-- 只有DOM从显示到隐藏 或者隐藏到显示 才能使用vue动画 -->
+    <button @click="flag = !flag">切换</button>
+    <!-- vue自定义的标签 （组件） -->
+    <transition name="jw">
+      <div v-show="flag">哈哈哈</div>
+    </transition>
+
+    <transition>
+      <div v-show="flag">哈哈哈</div>
+    </transition>
+
+    <!-- <div v-if="flag">哈哈哈</div> -->
+
+  </div>
+
+  <script src="./node_modules/vue/dist/vue.min.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        flag: true
+      }
+    });
+
+  </script>
+</body>
+
+</html>

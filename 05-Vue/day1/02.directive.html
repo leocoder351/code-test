@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue 指令</title>
+</head>
+<body>
+  <div id="app">
+      <input type="text" v-model="msg">
+      <div>{{msg}}</div>
+      <div v-text="msg"></div>
+      <div v-once>{{msg}} {{msg}}</div>
+      <div v-html="p"></div>
+  </div>
+
+  
+
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello',
+        p: '<h2>hello</h2>'
+      }
+    })
+  </script>
+</body>
+</html>

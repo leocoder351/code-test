@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue 组件</title>
+</head>
+<body>
+  <div id="app">
+    <my-handsome></my-handsome>
+    <component1></component1>
+    <component2 />
+  </div>
+
+  <script src="./node_modules/vue/dist/vue.min.js"></script>
+  <script>
+    Vue.config.devtools = true;
+
+    // 局部组件使用的三部曲：
+    // 1. 创建这个组件
+    // 2. 注册这个组件
+    // 3. 使用这个组件
+    // 组件是相互独立的，不能直接跨作用域，vm实例也是一个组件，也拥有生命周期函数
+    
+    let handsome = {
+      template: `
+        <div>我很帅</div>
+      `
+    };
+
+    let obj = {name: 'liu'};  // 如果组件共用了数据，会导致同时更新
+
+    // 子组件不能直接使用父组件的数据（组件之间的数据交互）
+    // 组件理论上可以无限嵌套
+    let component1 = {
+      template: `
+        <div @click="name='wang'">组件1 - {{name}}</div>
+      `,
+      data() {
+        return obj;
+      }
+    };
+
+    let component2 = {
+      template: `
+        <div>组件2 - {{name}}</div>
+      `,
+      data() {
+        return obj;
+      }
+    };
+    
+    let vm = new Vue({
+      el: '#app',
+      components: {
+        'my-handsome': handsome,
+        component1,
+        component2
+      },
+      data: {
+        a: 2
+      }
+    });
+  </script>
+</body>
+</html>

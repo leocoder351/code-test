@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue 记事本todo</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 键盘修饰符 modifiers  @keyup.enter -->
+    <input type="text" v-model="val" @keyup.ctrl.enter="add">
+
+    <ul>
+      <li v-for="(item, index) in arr">
+        {{ item }}
+        <button @click="remove(index)">删除</button>
+      </li>
+    </ul>
+  
+  </div>
+
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        val: '',
+        arr: []
+      },
+      methods: {
+        add(e) {
+          // if (e.keyCode === 13 && this.val !== '') {
+          //   // 回车13添加
+          //   this.arr.unshift(this.val);
+          //   this.val = '';
+          // }
+          if (this.val !== '') {
+            // 回车添加
+            this.arr.unshift(this.val);
+            this.val = '';
+          }
+        },
+        remove(index) {
+          this.arr.splice(index, 1);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

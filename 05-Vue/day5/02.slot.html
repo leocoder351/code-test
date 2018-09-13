@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue 组件</title>
+  <style>
+    .mask {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .35);
+    }
+
+    .dialog {
+      width: 400px;
+      height: 150px;
+      background: #fff;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .hide {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- 父传子，子传父（绑定事件），父调用子组件的方法 -->
+  <div id="app">
+    <!-- slot作用：定制模板 -->
+    <!-- 这里放的内容，均属于父级当前模板的，只有属性名是属于组件的 -->
+    <modal><h1 slot="title">是否删除？</h1><p slot="content" @click="fn">亲确认删除吗</p></modal>
+    <modal><span>是否确认？</span></modal>
+    <modal></modal>
+  </div>
+
+  <!-- 模板中只能有一个根元素 -->
+  <!-- 如果没有名字的标签，默认会放置到default中 -->
+  <template id="modal">
+    <div>
+        <slot name="title">默认标题</slot>
+        <slot name="content">默认内容</slot>
+      <slot name="default">这是一个默认标题</slot>
+    </div>
+  </template>
+
+  <script src="./node_modules/vue/dist/vue.min.js"></script>
+  <script>
+    Vue.config.devtools = true;
+
+    let modal = {
+      template: '#modal',
+    };
+
+    let vm = new Vue({
+      el: '#app',
+      components: {
+        modal
+      },
+      methods: {
+        fn() {
+
+        }
+      }
+    });
+  </script>
+</body>
+</html>

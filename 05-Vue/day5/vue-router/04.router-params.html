@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue-router 带参数路由</title>
+</head>
+<body>  
+  <div id="app">
+    <router-link to="/article/1">商品1</router-link>
+    <router-link to="/article/2">商品2</router-link>
+    <!-- 如果用对象作为to的属性，并且使用了参数，必须给路由起个名字，通过名字跳转 -->
+    <router-link :to="{name: 'product', params: {id: 3}}">商品3</router-link>
+    <router-view></router-view>
+  </div>
+
+  <script src="../node_modules/vue/dist/vue.min.js"></script>
+  <!-- 必须放在vue的后面，因为vue-router是基于vue的 -->
+  <script src="../node_modules/vue-router/dist/vue-router.min.js"></script>
+
+  <script>
+    let article = {
+      template: `
+        <div>第 {{$route.params.id}} 篇文章</div>
+      `,
+      watch: {    // 路径参数发生变化 监控参数的变化发送ajax
+        '$route.params.id': function() {
+          alert('发送ajax')
+        }
+      }
+    };
+
+    let routes = [
+      {
+        name: 'product',
+        path: '/article/:id',
+        component: article
+      }
+    ];
+
+    let router = new VueRouter({
+      routes
+    });
+
+    let vm = new Vue({
+      el: '#app',
+      router
+    });
+  
+  </script>
+</body>
+</html>

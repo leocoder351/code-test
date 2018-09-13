@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue 组件</title>
+  <style>
+  </style>
+</head>
+<body>
+  <div id="app">
+    <loading ref="load"></loading>
+  </div>
+
+
+  <template id="loading">
+    <div v-show="flag">疯狂加载中...</div>
+  </template>
+
+  <script src="./node_modules/vue/dist/vue.min.js"></script>
+  <script>
+    Vue.config.devtools = true;
+
+    // 父组件调用子组件的方法
+    let loading = {
+      template: '#loading',
+      data() {
+        return {
+          flag: true
+        }
+      },
+      methods: {
+        hide() {
+          this.flag = false;
+        }
+      }
+    };
+
+    let vm = new Vue({
+      el: '#app',
+      data: {},
+      components: {
+        loading
+      },
+      mounted() {
+        // refs 如果放在组件上，获取的是组件的实例，并不是组件的DOM元素
+        console.log(this.$refs.load);
+        // this.$refs.load.hide();
+        this.$refs.load.$el.style.background = 'red';
+      }
+    });
+  </script>
+</body>
+</html>

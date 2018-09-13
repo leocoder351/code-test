@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Object.defineProperty</title>
+</head>
+<body>
+  <input type="text" id="input">
+
+
+  <script>
+    // let obj = {};
+    // Object.defineProperty(obj, 'name', {
+    //   configurable: false,   // 是否可以删除属性
+    //   writable: false,    // 是否可赋值
+    //   enumerable: false,  // 是否可被循环出来
+    //   value: 1
+    // });
+
+    let obj = {};
+    let temp = {};  // 代理对象
+
+    Object.defineProperty(obj, 'name', {
+      get() {
+        // 取obj.name会触发
+        return temp['name'];
+      },
+
+      set(value) {
+        // 设置obj.name会触发
+        temp['name'] = value;     // 改变temp的结果
+        input.value = obj.name;   // 将值赋给输入框
+      }
+    });
+
+    input.value = obj.ame;  // 页面一加载时会调用get方法
+    input.addEventListener('input', function() {
+      // 等待输入框变化
+      // 当值变化时会调用set方法
+      obj.name = this.value;
+    });
+  </script>
+</body>
+</html>

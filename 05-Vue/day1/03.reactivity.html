@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue 数据响应式变化</title>
+</head>
+<body>
+  <div id="app">
+    {{ a.school }}
+  </div>
+
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+  <script>
+    // vue会循环data中的数据（数据劫持），依次的增加getter和setter
+    // 使用变量时，先要初始化，否则新加的属性不会导致页面刷新
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        a: {
+          school: ''
+        }
+      }
+    });
+
+    vm.$set();    // 此方法可以给对象添加响应式的数据变化
+  </script>
+</body>
+</html>

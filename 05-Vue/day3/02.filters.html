@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue 事件</title>
+</head>
+
+<body>
+  <div id="app1">
+    {{ 'hello' | my }}
+  </div>
+
+  <div id="app2">
+    {{ 'hello' | my }}
+  </div>
+
+  <script src="./node_modules/vue/dist/vue.min.js"></script>
+  <script>
+    Vue.filter('my', function (input) {  // 全局过滤器
+      return 'jw' + input;
+    })
+
+    new Vue({
+      el: '#app1',
+      filters: {
+        // my(input) {
+        //   return 'jw' + input;
+        // }
+      }
+    });
+
+    new Vue({
+      el: '#app2',
+      filters: {
+        // my(input) {
+        //   return 'jw' + input;
+        // }
+      }
+    });
+
+  </script>
+</body>
+
+</html>

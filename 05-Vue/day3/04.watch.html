@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue watch</title>
+</head>
+
+<body>
+  <div id="app1">
+    <input type="text" v-model="a"> {{ msg }}
+  </div>
+
+  <script src="./node_modules/vue/dist/vue.min.js"></script>
+  <script>
+    new Vue({
+      el: '#app1',
+      data: {
+        a: '',
+        msg: ''
+      },
+      watch: {    // 只有值变化的时候才会触发，支持异步
+        a(newVal, oldVal) {   // watch的属性名字要和观察的人的名字一致
+          setTimeout(() => {
+            console.log(newVal, oldVal);
+            if (newVal.length < 3) {
+              this.msg = '太少';
+              return;
+            }
+            if (newVal.length > 6) {
+              this.msg = '太多';
+              return;
+            }
+            this.msg = '';
+          }, 1000);
+        }
+      }
+    });
+
+  </script>
+</body>
+
+</html>

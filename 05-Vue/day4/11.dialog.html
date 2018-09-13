@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue 组件</title>
+  <style>
+    .mask {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .35);
+    }
+
+    .dialog {
+      width: 400px;
+      height: 150px;
+      background: #fff;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <button>弹框</button>
+    <!-- 如果show的值是true，则显示，如果是false则隐藏 @close是点击关闭按钮时触发的函数 -->
+    <modal :show="false"></modal>
+  </div>
+
+  <template id="modal">
+    <div class="mask">
+      <div class="dialog">
+        <button>关闭</button>
+      </div>
+    </div>
+  </template>
+
+  <script src="./node_modules/vue/dist/vue.min.js"></script>
+  <script>
+    Vue.config.devtools = true;
+
+    // 名字不能叫dialog，原生中已经占有了这个名字
+    let modal = {
+      props: ['show'],
+      template: '#modal'
+    };
+
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        money: 400
+      },
+      components: {
+        modal
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue 事件</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 所有绑定的方法都是window上的 -->
+    <!-- <div onclick="fn()" id="btn">点我啊</div> -->
+
+    <!-- v-on === @ -->
+    <!-- 如果不传递参数，则不要写括号会自动传入事件源，如果写括号，要手动传入$event属性 -->
+    <div v-on:click="fn" id="btn">点我啊</div>
+    <div @click="fn($event, 1)" id="btn">点我啊</div>
+  </div>
+
+  <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+  <script>
+
+    // function fn() {
+    //   alert(1);
+    // }
+
+    // console.log(btn.onclick);     // ƒ onclick(event) { fn() }
+
+    let vm = new Vue({
+      el: '#app',
+      data: { // 都是数据
+        fn(event, data) {   // 写在这里其实也可以，但方法一般写在methods里，data里写数据，data 和 methods 最后都会挂在到vm上
+          console.log(event);
+          console.log(data);
+        } 
+      },
+      methods: {
+        // methods和data中的数据全部会放到vm上，而且名字不能冲突，冲突会报错，methods中this指向的是根实例vm
+        fn(event, data) {
+          console.log(event);
+          console.log(data);
+        } 
+      }
+    });
+  </script>
+</body>
+</html>

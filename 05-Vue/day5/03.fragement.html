@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>fragement</title>
+</head>
+
+<body>
+  <div id="app"> 你看见我了 <p>hi</p>
+  </div>
+
+  <script>
+    function myFragment(node) {
+
+      var frag = document.createDocumentFragment()
+
+      var child
+
+      while (child = node.firstChild) {//有子节点的时候，就给child赋值
+
+        frag.appendChild(child)//追加到frag，子节点少一个
+
+      }
+
+      return frag
+
+    }
+
+    var DOM = myFragment(document.getElementById('app'))
+
+    console.log(DOM)
+
+    console.log('这是innerHTML：' + document.getElementById('app').innerHTML)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js
+
+PATH: 
+  C:\Users\lx619\Downloads\bin;C:\Users\lx619\Downloads\vendor\git-for-windows\cmd;C:\Users\lx619\Downloads\vendor\conemu-maximus5\ConEmu\Scripts;C:\Users\lx619\Downloads\vendor\conemu-maximus5;C:\Users\lx619\Downloads\vendor\conemu-maximus5\ConEmu;.COM;.EXE;C:\WINDOWS\system32;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;D:\Program Files (x86)\Mysql 5.6\mysql-5.6.17-winx64\mysql-5.6.17-winx64\bin;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\lx619\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Yarn\bin\;C:\Users\lx619\AppData\Local\Microsoft\WindowsApps;C:\Users\lx619\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\lx619\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\lx619\AppData\Local\atom\bin;C:\Users\lx619\AppData\Local\Yarn\bin;C:\Users\lx619\Downloads\vendor\git-for-windows\usr\bin;C:\Users\lx619\Downloads\vendor\git-for-windows\usr\share\vim\vim74;C:\Users\lx619\Downloads\
+
+Yarn version: 
+  1.9.4
+
+Node version: 
+  8.9.3
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: F:\projects\code-test\package.json: Unexpected end of JSON input
+      at JSON.parse (<anonymous>)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:1130:59
+      at Generator.next (<anonymous>)
+      at step (C:\Program Files (x86)\Yarn\lib\cli.js:92:30)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:103:13
+      at <anonymous>
+
+npm manifest: 
+  {
+    "name": "day6",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+      "babel-core": "^6.26.0",
+      "babel-loader": "^7.1.2",
+      "babel-preset-es2015": "^6.24.1",
+      "babel-preset-stage-0": "^6.24.1",
+      "css-loader": "^0.28.7",
+      "file-loader": "^1.1.5",
+      "html-webpack-plugin": "^2.30.1",
+      "less": "^3.0.0-alpha.3",
+      "less-loader": "^4.0.5",
+      "style-loader": "^0.19.0",
+      "url-loader": "^0.6.2",
+      "vue-loader": "^13.3.0",
+      "vue-template-compiler": "^2.5.2",
+      "webpack": "^3.8.1",
+      "webpack-dev-server": "^2.9.2"
+    },
+    "dependencies": {
+      "bootstrap": "^3.3.7",
+      "vue": "^2.5.2",
+      "vue-router": "^3.0.1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

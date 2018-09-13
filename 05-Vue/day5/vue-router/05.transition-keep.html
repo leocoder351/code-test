@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../node_modules/animate.css/animate.min.css">
+  <title>vue-router 带参数路由</title>
+</head>
+
+<body>
+  <div id="app">
+    <router-link to="/home">首页</router-link>
+    <router-link to="/list">列表页</router-link>
+
+    <!-- mode="out-in" 动画的模式 -->
+    <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
+      <keep-alive>
+        <router-view style="position: absolute; top: 40px; left: 0; width: 100%;"></router-view>
+      </keep-alive>
+    </transition>
+
+  </div>
+
+  <script src="../node_modules/vue/dist/vue.min.js"></script>
+  <!-- 必须放在vue的后面，因为vue-router是基于vue的 -->
+  <script src="../node_modules/vue-router/dist/vue-router.min.js"></script>
+
+  <script>
+    Vue.config.devtools = true;
+    
+    let home = {
+      template: `
+        <div style="background: red">首页</div>
+      `
+    };
+
+    let list = {
+      template: `
+        <div style="background: green">列表</div>
+      `
+    };
+
+    let routes = [
+      {
+        path: '/home',
+        component: home
+      },
+
+      {
+        path: '/list',
+        component: list
+      }
+    ];
+
+    let router = new VueRouter({
+      routes
+    });
+
+    let vm = new Vue({
+      el: '#app',
+      router
+    });
+
+  </script>
+</body>
+
+</html>
