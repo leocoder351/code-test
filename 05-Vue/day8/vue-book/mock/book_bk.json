@@ -1,0 +1,44 @@
+[
+  {
+    "bookCover": "http://img3m3.ddimg.cn/3/23/25317273-1_l_6.jpg",
+    "bookName": "美团机器学习实践",
+    "bookInfo": "人工智能机器学习算法落地实践指南",
+    "bookPrice": 54.50,
+    "bookId": 1
+  },
+  {
+    "bookCover": "http://img3m1.ddimg.cn/74/4/25286951-1_l_5.jpg",
+    "bookName": "人工智能产品经理",
+    "bookInfo": "回归AI产品本质，深度剖析AI产品的创造过程",
+    "bookPrice": 40.70,
+    "bookId": 2
+  },
+  {
+    "bookCover": "http://img3m9.ddimg.cn/46/16/25086349-1_l_1.jpg",
+    "bookName": "PHP从入门到精通",
+    "bookInfo": "120000读者口碑相传",
+    "bookPrice": 55.00,
+    "bookId": 3
+  },
+  {
+    "bookCover": "http://img3m8.ddimg.cn/59/31/23453258-1_l_3.jpg",
+    "bookName": "SPSS统计分析大全",
+    "bookInfo": "畅销13500册，位列当当SPSS销售榜前列",
+    "bookPrice": 48.10,
+    "bookId": 4
+  },
+  {
+    "bookCover": "http://img3m4.ddimg.cn/35/7/23489864-1_l_1.jpg",
+    "bookName": "算法竞赛入门经典",
+    "bookInfo": "畅销5年之久的算法竞赛好书全新改版",
+    "bookPrice": 34.40,
+    "bookId": 5
+  },
+  {
+    "bookCover": "http://img3m3.ddimg.cn/53/5/24168923-1_l_11.jpg",
+    "bookName": "数字化生存",
+    "bookInfo": "一本影响千百万人的互联网启蒙经典著作",
+    "bookPrice": 46.90,
+    "bookId": 6
+  }
+]
