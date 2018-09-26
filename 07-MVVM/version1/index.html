@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MVVM</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 双向数据绑定 靠的是表单 -->
+    <input type="text" v-model="message.a">
+    <ul>
+      <li>{{message.a}}</li>
+      <li>world</li>
+    </ul>
+    <h3>{{message.a}}</h3>
+  </div>
+
+  <script src="./Dep.js"></script>
+  <script src="./Watcher.js"></script>
+  <script src="./Observer.js"></script>
+  <script src="./Compile.js"></script>
+  <script src="./MVVM.js"></script>
+  <script>
+    // 数据一般都挂载vm上
+    // vue中实现双向绑定，有很多概念
+    // 1. 编译模板 Compile阶段
+    // 2. 数据劫持 Observer阶段 Object.defineProperty getter和setter
+    // 3. 观察者 Watcher阶段
+    let vm = new MVVM({
+      el: '#app',
+      data: {
+        message: {
+          a: 'hello'
+        }
+      }
+    });
+  </script>
+</body>
+</html>
