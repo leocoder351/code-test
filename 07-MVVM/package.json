@@ -1,0 +1,9 @@
+{
+  "name": "07-MVVM",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "vue": "^2.5.17"
+  }
+}
