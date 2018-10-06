@@ -1,0 +1,65 @@
+[2018-10-04T13:10:39.821] [ERROR] cheese - cheese is to ripe
+[2018-10-04T13:10:46.159] [ERROR] cheese - { Error: ENOENT: no such file or directory, open '/Users/liuxuan/Documents/git/code-test/12-webArch3/dist/views/index/page/index.html'
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/liuxuan/Documents/git/code-test/12-webArch3/dist/views/index/page/index.html' }
+[2018-10-04T13:11:08.093] [ERROR] cheese - cheese is to ripe
+[2018-10-04T13:11:09.941] [ERROR] cheese - { Error: ENOENT: no such file or directory, open '/Users/liuxuan/Documents/git/code-test/12-webArch3/dist/views/index/page/index.html'
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/liuxuan/Documents/git/code-test/12-webArch3/dist/views/index/page/index.html' }
+[2018-10-04T13:11:42.767] [ERROR] cheese - cheese is to ripe
+[2018-10-04T13:11:51.338] [ERROR] cheese - { Error: ENOENT: no such file or directory, open '/Users/liuxuan/Documents/git/code-test/12-webArch3/dist/views/common/index.html'
+    at Object.fs.openSync (fs.js:646:18)
+    at Object.fs.readFileSync (fs.js:551:33)
+    at Object.ret.load (/Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/loaders/filesystem.js:59:15)
+    at exports.Swig.parseFile (/Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/swig.js:403:31)
+    at getParents (/Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/swig.js:480:14)
+    at exports.Swig.precompile (/Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/swig.js:527:19)
+    at exports.Swig.compile (/Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/swig.js:651:16)
+    at /Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/swig.js:729:27
+    at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:511:3)
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/liuxuan/Documents/git/code-test/12-webArch3/dist/views/common/index.html' }
+[2018-10-04T13:12:33.344] [ERROR] cheese - cheese is to ripe
+[2018-10-04T13:12:36.065] [ERROR] cheese - { Error: ENOENT: no such file or directory, open '/Users/liuxuan/Documents/git/code-test/12-webArch3/dist/widgets/ydheader/ydheader.html'
+    at Object.fs.openSync (fs.js:646:18)
+    at Object.fs.readFileSync (fs.js:551:33)
+    at Object.ret.load (/Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/loaders/filesystem.js:59:15)
+    at exports.Swig.compileFile (/Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/swig.js:740:31)
+    at Object.eval [as tpl] (eval at precompile (/Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/swig.js:537:13), <anonymous>:11:18)
+    at compiled (/Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/swig.js:664:18)
+    at /Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/swig.js:604:20
+    at /Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/swig.js:735:9
+    at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:511:3)
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/liuxuan/Documents/git/code-test/12-webArch3/dist/widgets/ydheader/ydheader.html' }
+[2018-10-04T13:32:55.453] [ERROR] cheese - { Error: ENOENT: no such file or directory, open '/Users/liuxuan/Documents/git/code-test/12-webArch3/dist/widgets/ydheader/ydheader.html'
+    at Object.fs.openSync (fs.js:646:18)
+    at Object.fs.readFileSync (fs.js:551:33)
+    at Object.ret.load (/Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/loaders/filesystem.js:59:15)
+    at exports.Swig.compileFile (/Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/swig.js:740:31)
+    at Object.eval [as tpl] (eval at precompile (/Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/swig.js:537:13), <anonymous>:11:18)
+    at compiled (/Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/swig.js:664:18)
+    at /Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/swig.js:604:20
+    at exports.Swig.compileFile (/Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/swig.js:714:9)
+    at renderFile (/Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/swig-templates/lib/swig.js:595:12)
+    at eval (eval at thenify (/Users/liuxuan/Documents/git/code-test/12-webArch3/node_modules/thenify/index.js:17:10), <anonymous>:10:12)
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/liuxuan/Documents/git/code-test/12-webArch3/dist/widgets/ydheader/ydheader.html' }
+[2018-10-04T13:34:45.311] [ERROR] cheese - cheese is to ripe
+[2018-10-04T13:34:56.744] [ERROR] cheese - cheese is to ripe
+[2018-10-04T13:40:07.264] [ERROR] cheese - cheese is to ripe
+[2018-10-04T13:45:35.180] [ERROR] cheese - cheese is to ripe
+[2018-10-04T13:45:42.151] [ERROR] cheese - cheese is to ripe
+[2018-10-04T13:46:24.329] [ERROR] cheese - cheese is to ripe
+[2018-10-04T13:46:36.165] [ERROR] cheese - cheese is to ripe
+[2018-10-04T14:06:38.624] [ERROR] cheese - cheese is to ripe

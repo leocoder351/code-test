@@ -1,0 +1,67 @@
+[2018-10-03T22:32:18.706] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:32:24.745] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:32:32.652] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:32:46.819] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:34:00.047] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:37:49.262] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:37:49.643] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:37:50.603] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:40:10.978] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:40:58.252] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:41:34.399] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:42:15.529] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:42:25.589] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:49:48.913] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:49:49.621] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:49:49.901] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:50:15.981] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:50:16.688] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:51:20.869] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:52:47.138] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:55:35.870] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:55:51.686] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:56:15.841] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:57:30.714] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:57:34.584] [ERROR] cheese - { Error: ENOENT: no such file or directory, open '/Users/liuxuan/Documents/git/code-test/11-webArch2/dist/config/views/index.html'
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/liuxuan/Documents/git/code-test/11-webArch2/dist/config/views/index.html' }
+[2018-10-03T22:58:06.053] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:58:06.873] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:58:10.000] [ERROR] cheese - { Error: ENOENT: no such file or directory, open '/Users/liuxuan/Documents/git/code-test/11-webArch2/dist/config/views/index.html'
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/liuxuan/Documents/git/code-test/11-webArch2/dist/config/views/index.html' }
+[2018-10-03T22:58:19.430] [ERROR] cheese - { Error: ENOENT: no such file or directory, open '/Users/liuxuan/Documents/git/code-test/11-webArch2/dist/config/views/index.html'
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/liuxuan/Documents/git/code-test/11-webArch2/dist/config/views/index.html' }
+[2018-10-03T22:58:35.577] [ERROR] cheese - { Error: ENOENT: no such file or directory, open '/Users/liuxuan/Documents/git/code-test/11-webArch2/dist/config/views/index.html'
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/liuxuan/Documents/git/code-test/11-webArch2/dist/config/views/index.html' }
+[2018-10-03T22:59:13.414] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:59:14.139] [ERROR] cheese - cheese is to ripe
+[2018-10-03T22:59:30.879] [ERROR] cheese - { Error: ENOENT: no such file or directory, open '/Users/liuxuan/Documents/git/code-test/11-webArch2/dist/config/views/index.html'
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/liuxuan/Documents/git/code-test/11-webArch2/dist/config/views/index.html' }
+[2018-10-03T22:59:34.724] [ERROR] cheese - { Error: ENOENT: no such file or directory, open '/Users/liuxuan/Documents/git/code-test/11-webArch2/dist/config/views/index.html'
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/liuxuan/Documents/git/code-test/11-webArch2/dist/config/views/index.html' }
+[2018-10-03T23:00:20.558] [ERROR] cheese - cheese is to ripe
+[2018-10-03T23:00:21.374] [ERROR] cheese - cheese is to ripe
+[2018-10-03T23:00:58.494] [ERROR] cheese - cheese is to ripe
+[2018-10-03T23:02:18.726] [ERROR] cheese - cheese is to ripe
+[2018-10-03T23:03:44.001] [ERROR] cheese - cheese is to ripe
+[2018-10-03T23:03:44.846] [ERROR] cheese - cheese is to ripe
+[2018-10-03T23:05:55.423] [ERROR] cheese - cheese is to ripe
+[2018-10-03T23:07:10.643] [ERROR] cheese - cheese is to ripe
+[2018-10-03T23:11:01.385] [ERROR] cheese - cheese is to ripe

@@ -1,0 +1,20 @@
+.widgets-ydheader .h-70 {
+    height: 70px;
+}
+.widgets-ydheader .header-content {
+    line-height: 70px;
+    color: yellowgreen;
+    -webkit-box-shadow: 0 0 10px #000;
+            box-shadow: 0 0 10px #000;
+}
+.widgets-ydheader .header-content__logo {
+    float: left;
+}
+.widgets-ydheader .header-content__nav ul li {
+    float: left;
+    margin-right: 10px;
+    list-style: none;
+}
+.widgets-ydheader .header-content__nav-active {
+    text-decoration: underline;
+}

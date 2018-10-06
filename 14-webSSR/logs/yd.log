@@ -1,0 +1,22 @@
+[2018-10-05T22:29:42.965] [ERROR] cheese - ReferenceError: window is not defined
+    at Module.<anonymous> (main.bundle.js:24:12604)
+    at r (main.bundle.js:1:194)
+    at Object.module.exports.t.exports (main.bundle.js:1:14684)
+    at r (main.bundle.js:1:194)
+    at main.bundle.js:1:1229
+    at Object.<anonymous> (main.bundle.js:1:1239)
+    at evaluateModule (/Users/liuxuan/Documents/git/code-test/14-webSSR/node_modules/vue-server-renderer/build.js:8349:21)
+    at /Users/liuxuan/Documents/git/code-test/14-webSSR/node_modules/vue-server-renderer/build.js:8407:18
+    at new Promise (<anonymous>)
+    at /Users/liuxuan/Documents/git/code-test/14-webSSR/node_modules/vue-server-renderer/build.js:8399:14
+[2018-10-05T23:25:23.401] [ERROR] cheese - ReferenceError: window is not defined
+    at Module.<anonymous> (main.bundle.js:24:12604)
+    at r (main.bundle.js:1:194)
+    at Object.module.exports.t.exports (main.bundle.js:1:14684)
+    at r (main.bundle.js:1:194)
+    at main.bundle.js:1:1229
+    at Object.<anonymous> (main.bundle.js:1:1239)
+    at evaluateModule (/Users/liuxuan/Documents/git/code-test/14-webSSR/node_modules/vue-server-renderer/build.js:8349:21)
+    at /Users/liuxuan/Documents/git/code-test/14-webSSR/node_modules/vue-server-renderer/build.js:8407:18
+    at new Promise (<anonymous>)
+    at /Users/liuxuan/Documents/git/code-test/14-webSSR/node_modules/vue-server-renderer/build.js:8399:14
