@@ -10,6 +10,7 @@ function loader(source) {
   console.log(this.request);  // 指的是当前loader加载的文件是哪一个
   let options = loaderUtils.getOptions(this);
   // 用babel进行转化
+  // babel.transform(code, options) // => { code, map, ast }
   let result = babel.transform(source, {
     ...options,
     sourceMap: true,

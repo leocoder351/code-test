@@ -88,19 +88,44 @@ let CompileUtil = {
   getTextVal: function(vm, expr) {
     let reg = /\{\{([^}]+)\}\}/g;
     return expr.replace(reg, (...args) => {
-      console.log('args', args);
       return this.getVal(vm, args[1]);
     });
   },
 
+  setVal: function (vm, expr, newVal) {
+    expr = expr.split('.');
+    return expr.reduce((prev, next, index) => {
+      if (index === expr.length - 1) {
+        // 最后一项
+        return prev[next] = newVal;
+      }
+      return prev[next];
+    },vm.$data);
+  },
+
   model: function(node, vm, expr) {
-    let value = this.getVal(vm, expr);
-    this.updater.modelUpdater(node, value);
+    new Watcher(vm, expr, (newVal) => {
+      this.updater.modelUpdater(node, newVal);
+    });
+
+    node.addEventListener('input', (e) => {
+      let newVal = e.target.value;
+      this.setVal(vm, expr, newVal);
+    });
+
+    this.updater.modelUpdater(node, this.getVal(vm, expr));
   },
 
   text: function(node, vm, expr) {
-    let value = this.getTextVal(vm, expr);
-    this.updater.textUpdater(node, value);
+    let reg = /\{\{([^}]+)\}\}/g;
+
+    expr.replace(reg, (...args) => {
+      new Watcher(vm, args[1], (newVal) => {
+        this.updater.textUpdater(node, this.getTextVal(vm, expr));
+      });
+    });
+
+    this.updater.textUpdater(node, this.getTextVal(vm, expr));
   },
 
   updater: {

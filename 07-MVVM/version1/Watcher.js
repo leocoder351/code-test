@@ -12,6 +12,7 @@ class Watcher {
   getVal(vm, expr) {    // 获取实例上对应的数据
     expr = expr.split('.');
     return expr.reduce((prev, next) => {
+      // 这里会调Observer中的getter
       return prev[next];
     }, vm.$data);
   }

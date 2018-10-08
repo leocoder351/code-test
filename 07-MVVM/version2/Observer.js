@@ -14,15 +14,21 @@ Observer.prototype.observe = function(data) {
 
 // 设置getter和setter
 Observer.prototype.defineReactive = function(obj, key, value) {
+  let that = this;
+  let dep = new Dep();
+
   Object.defineProperty(obj, key, {
     enumerable: true,
     configurable: true,
     get() {
+      Dep.target && dep.addSub(Dep.target);
       return value;
     },
     set(newValue) {
       if (newValue !== value) {
+        that.observe(newValue);
         value = newValue;
+        dep.notify();
       }
     }
   });
