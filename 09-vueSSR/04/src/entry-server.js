@@ -9,6 +9,8 @@ export default context => {
   
     Object.values(components).forEach(component => {
       if (component.asyncData) {
+        console.log(3333);
+        console.log(component);
         asyncDataPromiseFns.push(component.asyncData({ store }));
       }
     });

@@ -1,20 +1,26 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
 
-  entry: './app.js',
+  resolve: {
+    extensions: ['.js', '.vue']
+  },
 
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, '../dist'),
+    publicPath: '/',
+    filename: 'main.bundle.js'
   },
 
   module: {
     rules: [
+      {
+        test: /\.vue$/,
+        use: 'vue-loader'
+      },
       {
         test: /\.js$/,
         use: 'babel-loader'
@@ -22,13 +28,6 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['vue-style-loader', 'css-loader', 'postcss-loader']
-        // use: ExtractTextPlugin.extract({
-        //   fallback: 'vue-style-loader',
-        //   use: [
-        //     'css-loader',
-        //     'postcss-loader'
-        //   ]
-        // })
       },
       {
         test: /\.(jpg|jpeg|png|gif|svg)$/,
@@ -38,19 +37,17 @@ module.exports = {
             limit: 10000    // 10Kb
           }
         }
-      },
-      {
-        test: /\.vue$/,
-        use: 'vue-loader'
       }
     ]
   },
 
   plugins: [
     new VueLoaderPlugin(),
-    new HtmlWebpackPlugin({
-      template: './index.html'
-    }),
-    new ExtractTextPlugin("styles.css")
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../src/index.html'), 
+        to: './index.html'
+      }
+    ])
   ]
 };

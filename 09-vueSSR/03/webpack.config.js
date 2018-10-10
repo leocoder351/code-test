@@ -24,7 +24,7 @@ module.exports = {
         use: ['vue-style-loader', 'css-loader', 'postcss-loader']
         // use: ExtractTextPlugin.extract({
         //   fallback: 'vue-style-loader',
-        //   use: [
+        //   use: [åç
         //     'css-loader',
         //     'postcss-loader'
         //   ]
