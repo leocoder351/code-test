@@ -1,0 +1,9 @@
+{
+  "name": "18-Koa",
+  "version": "1.0.0",
+  "main": "lib/application.js",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.5.3"
+  }
+}

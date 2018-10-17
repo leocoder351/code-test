@@ -9,7 +9,7 @@
       "type": "node",
       "request": "launch",
       "name": "启动程序",
-      "program": "${workspaceFolder}/01-ES6\\22.observe.js"
+      "program": "${workspaceFolder}/17-virtualDom/example/ex1.js"
     }
   ]
 }
