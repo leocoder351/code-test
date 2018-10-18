@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS绘制特殊图形</title>
+  <style>
+    div {
+      width: 300px;
+      height: 300px;
+      margin-bottom: 20px;
+      background-color: orange;
+      border: 30px solid;
+      border-left-color: blueviolet;
+      border-bottom-color: brown;
+      border-right-color: yellowgreen;
+      border-top-color: teal;
+    }
+
+    /*等腰三角形*/
+    .isosceles-triangle {
+      width: 0;
+      height: 0;
+      background-color: transparent;
+      border: 30px solid;
+      border-left-color: transparent;
+      border-bottom-color: brown;
+      border-right-color: transparent;
+      border-top-color: transparent;
+    }
+
+    /*直角三角形*/
+    .right-triangle {
+      width: 0;
+      height: 0;
+      background-color: transparent;
+      border: 30px solid;
+      border-left-color: blueviolet;
+      border-bottom-color: brown;
+      border-right-color: yellowgreen;
+      border-top-color: transparent;
+      border-bottom: 0;
+      border-left: 0;
+    }
+
+    /*梯形*/
+    .trapezium {
+      width: 300px;
+      height: 0px;
+      background-color: transparent;
+      border: 30px solid;
+      border-left-color: transparent;
+      border-bottom-color: brown;
+      border-right-color: transparent;
+      border-top-color: teal;
+      border-top: none;
+    }
+
+    /*圆*/
+    .circle {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+      border: none;
+      border-radius: 150px;
+    }
+
+    /*椭圆*/
+    .ellipse {
+      width: 100px;
+      height: 80px;
+      border: 0;
+      background-color: coral;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      border-bottom-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="isosceles-triangle"></div>
+  <div class="right-triangle"></div>
+  <div class="trapezium"></div>
+  <div class="circle"></div>
+  <div class="rectangle"></div>
+</body>
+</html>
