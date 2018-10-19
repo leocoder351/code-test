@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自适应正方形</title>
+  <style>
+    .square1 {
+      width: 10vw;
+      height: 10vw;
+      background: yellowgreen;
+    }
+
+    .square2 {
+      width: 10%;
+      /* padding 和 margin 为百分比时，是基于其父元素的宽度，也就是 父元素宽度*10% */
+      padding-top: 10%;
+      background: black;
+    }
+
+    .square3 {
+      width: 10%;
+      overflow: hidden;
+      background: red;
+    }
+
+    .square3::after {
+      display: block;
+      content: '';
+      margin-top: 100%;
+    }
+
+    .ifc {
+      width: 50px;
+      height: 20px;
+      background: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="square1"></div>
+  <div class="square2"></div>
+  <div class="square3"></div>
+
+  <div style="width: 100px; height: 100px; background: orange;">
+      <div class="ifc">IFC</div>
+  </div>
+ 
+</body>
+</html>

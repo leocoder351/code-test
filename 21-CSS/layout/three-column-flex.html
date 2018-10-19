@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三列flex布局</title>
+  <style>
+    .container {
+      display: flex;
+      justify-content: start;
+    }
+
+    .left {
+      width: 200px;
+      height: 200px;
+      background: green;
+    }
+
+    .center {
+      flex-grow: 1;
+      height: 200px;
+      background: yellowgreen;
+    }
+
+    .right {
+      width: 300px;
+      height: 200px;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">左边左边左边左边左边</div>
+    <div class="center">中间中间中间</div>
+    <div class="right">右边右边右边右边右边右边右边右边右边</div>
+  </div>
+</body>
+</html>
