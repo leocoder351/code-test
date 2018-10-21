@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>基础布局</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      width: 980px;
+      margin: 0 auto;
+    }
+
+    .header {
+      height: 150px;
+      background-color: orange;
+    }
+
+    .footer {
+      height: 150px;
+      background-color: yellow;
+    }
+
+    .content {
+      height: 300px;
+      background-color: green;
+    }
+
+    .content > .left {
+      height: 300px;
+      background-color: blueviolet;
+      float: left;
+      width: 20%;
+    }
+
+    .content > .right {
+      height: 300px;
+      background-color: bisque;
+      float: right;
+      width: 10%;
+    }
+
+    .content > .middle {
+      display: inline-block;    /* 触发IFC */
+      width: 70%;
+      height: 300px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">我是header</div>
+    <div class="content">
+      <div class="middle">中间</div>
+      <div class="left">左边</div>
+      <div class="right">右边</div>
+    </div>
+    <div class="footer">版权信息</div>
+  </div>
+</body>
+</html>

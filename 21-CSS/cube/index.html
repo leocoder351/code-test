@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>3D魔方</title>
+  <style>
+    #box {
+      margin: 300px;
+      position: relative;
+      transform-style: preserve-3d;
+      transform-origin: 80px 80px 0;
+      perspective: 0px;
+      transform: rotateY(40deg);
+      animation: rotateCub 3s infinite;
+    }
+
+    #box > div {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      font-size: 200px;
+      text-align: center;
+      background-color: yellowgreen;
+      border: 5px solid black;
+      opacity: .8;
+    }
+
+    @keyframes rotateCub {
+      0% {
+        transform: rotateX(0) rotateY(40deg);
+      }
+
+      100% {
+        transform: rotateX(270deg);
+      }
+    }
+
+    /* X轴向右、Y轴向下、Z轴向外 */
+
+    .one {
+      
+    }
+
+    .two {
+      transform: rotateX(90deg) translate3d(0, -150px, -150px);
+    }
+
+    .three {
+      transform: rotateX(90deg) translate3d(0, -150px, 150px);
+    }
+
+    .four {
+      transform: translate3d(0, 0, -300px);
+    }
+
+    .five {
+      transform: rotateY(90deg) translate3d(150px, 0, -150px);
+    }
+
+    .six {
+      transform: rotateY(90deg) translate3d(150px, 0, 150px);
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+      <div class="one">A</div>
+      <div class="two">B</div>
+      <div class="three">C</div>
+      <div class="four">D</div>
+      <div class="five">E</div>
+      <div class="six">F</div>
+  </div>
+</body>
+</html>
