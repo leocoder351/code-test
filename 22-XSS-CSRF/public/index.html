@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>评论页面</title>
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <h2>评论页面</h2>
+            </div>
+            <div class="panel-body">
+              <ul class="list-group"></ul>
+            </div>
+            <div class="panel-footer">
+              <form onsubmit="onAddComment(event)">
+                <div class="form-group">
+                  <label for="content" class="control-label">内容</label>
+                  <input type="text" id="content" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="submit" value="发表" class="btn btn-primary">
+                  <a href="/pay.html" class="btn btn-danger">去转账</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/node_modules/jquery/dist/jquery.js"></script>
+  <script>
+    function getList(params) {
+      $.get('/api/list').then(res => {
+        if (res.code === 0) {
+          let html = '';
+
+          res.comments.forEach(comment => {
+            html += `<li class="list-group-item">${comment.username}: ${comment.content}</li>`
+          });
+
+          $('.list-group').html(html);
+        }
+      });
+    }
+
+    getList();
+
+    // 1. 客户端传递给服务器时 需要校验先过滤一下
+    // 2. 服务端再做一次过滤
+    // 3. 直接在输出的时候过滤
+    function encodeHtml(str) {
+      return str.replace(/&/g, '&amp;').
+                 replace(/"/g, '&quot;').
+                 replace(/'/g, '&apos;').
+                 replace(/</g, '&lt;').
+                 replace(/>/g, '&gt;');
+    }
+
+    function onAddComment(e) {
+      e.preventDefault();
+      // 发表
+      let content = encodeHtml($('#content').val());
+      $.post('/api/addComment', {content}).then(res => {
+        if (res.code === 0) {
+          getList();    // 获取评论最新列表
+        } else {
+          location.href = '/login.html';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

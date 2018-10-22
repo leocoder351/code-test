@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>代理模式</title>
+</head>
+<body>
+  
+  <script>
+    // var img = require('a.js');
+    // var canvas = require('b.js');
+    
+    // if ('wang su hao') {
+    //   img.draw();
+    // } else {
+    //   canvas.draw();
+    // }
+
+    // proxy.js
+    // var proxy = {
+    //   draw() {
+    //     var img = require('a.js');
+    //     var canvas = require('b.js');
+        
+    //     if ('wang su hao') {
+    //       img.draw();
+    //     } else {
+    //       canvas.draw();
+    //     }
+    //   }
+    // };
+
+    // 业务逻辑
+    // var map = require('proxy.js');
+
+    class Real {
+      doSomething() {
+        console.log('doSomething')
+      }
+    }
+
+    class Proxy extends Real {
+      constructor() {
+        super();
+      }
+
+      doSomething() {
+        setTimeout(function() {
+          super.doSomething();
+        }, 0);
+      }
+    }
+
+    new Proxy().doSomething();
+
+  </script>
+</body>
+</html>
