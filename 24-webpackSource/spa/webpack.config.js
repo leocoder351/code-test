@@ -7,15 +7,56 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const argv = require('yargs-parser')(process.argv.slice(2));
 const merge = require('webpack-merge');
+const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+// const DashboardPlugin = require('webpack-dashboard');
+const setTitle = require('node-bash-title');
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+const smp = new SpeedMeasurePlugin();
 
+setTitle('🍌webpack单页应用');
 console.log(argv);
+
+const loading = {
+  html: '加载中...'
+};
 
 const _mode = argv.mode || 'development';
 const _devFlag = _mode === 'development';
 const _mergeConfig = require(path.resolve(__dirname, `./config/webpack.${_mode}.js`));
 
-module.exports = merge(_mergeConfig, {
+module.exports = smp.wrap(merge(_mergeConfig, {
   entry: './src/index.js',
+
+  devServer: {
+    port: 3000,
+    before(app) {
+      app.get('/api/test', (req, res) => {
+        res.json({
+          code: 200,
+          message: 'Hello World'
+        })
+      })
+    }
+  },
+
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          chunks: 'initial',
+          name: 'common',
+          minChunks: 1,
+          minSize: 0,
+          maxInitialRequests: 5
+        }
+      }
+    },
+    runtimeChunk: {
+      name: 'runtime'
+    }
+  },
 
   module: {
     rules: [
@@ -38,8 +79,15 @@ module.exports = merge(_mergeConfig, {
   },
 
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    // new DashboardPlugin(),
+    new ProgressBarPlugin(),
     new WebpackDeepScopePlugin(),
+    new WebpackBuildNotifierPlugin({
+      title: 'webpack单页应用',
+      // logo: path.resolve(__dirname, './img/favicon.png'),
+      suppressSuccess: true
+    }),
+    new ManifestPlugin(),
     // new PurifyCSSPlugin({
     //   paths: glob.sync(path.join(__dirname, './dist/*.html'))
     // }),
@@ -49,7 +97,9 @@ module.exports = merge(_mergeConfig, {
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      filename: 'index.html'
-    })
+      filename: 'index.html',
+      loading: loading
+    }),
+    new CleanWebpackPlugin(['dist'])
   ]
-});
+}));

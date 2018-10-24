@@ -1,0 +1,8 @@
+{
+  "async-test.js": "/scripts/async-test.fdb80.bundle.js",
+  "common.css": "/styles/1.fdb80.css",
+  "common.js": "/scripts/common.fdb80.bundle.js",
+  "main.js": "/scripts/main.fdb80.bundle.js",
+  "runtime.js": "/scripts/runtime.fdb80.bundle.js",
+  "index.html": "/index.html"
+}
