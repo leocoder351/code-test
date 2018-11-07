@@ -23,6 +23,7 @@ console.log(reg.test('0黑2'));   // false
 // 分组 -> 把一个大正则划分成几个小正则
 reg = /^(\d+)tianjin(\d+)$/;
 console.log(reg.test('2015tianjin2018'));
+console.log(reg.exec('2015tianjin2018'));
 
 
 
@@ -48,7 +49,7 @@ console.log(reg.test('2015tianjin2018'));
 // \D       除了0-9以外的任意一个字符
 // \b       匹配一个边界符 "w1 w2 w3"
 // \B       除了边界符以外的任意一个字符
-// \\w      数字、字母、下划线中的任意一个字符，相当于 [0-9a-zA-Z_]
+// \w       数字、字母、下划线中的任意一个字符，相当于 [0-9a-zA-Z_]
 // \W       除了数字、字母、下划线以外的任意一个字符
 // \s       匹配一个空白字符  空格、一个制表符(TAB)、换页符...
 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hash 路由</title>
+</head>
+<body>
+  <div>
+    <h2>Hash 路由</h2>
+    <ul id="nav">
+      <li><a data-path="/home">首页</a></li>
+      <li><a data-path="/contact">联系</a></li>
+      <li><a data-path="/detail">详情</a></li>
+    </ul>
+    <p id="childComponent"></p>
+  </div>
+
+  <script>
+    let $child = document.getElementById('childComponent');
+    let $nav = document.getElementById('nav');
+
+    $nav.addEventListener('click', (event) => {
+      let path = event.target.dataset.path;
+      location.hash = path;
+    });
+
+    window.onhashchange = function (event) {
+      let hash = location.hash.replace('#', '');
+
+      if (hash === '/home') {
+        $child.innerHTML = '我是首页';
+      } else if (hash === '/contact') {
+        $child.innerHTML = '我是联系页';
+      } else if (hash === '/detail') {
+        $child.innerHTML = '我是详情页';
+      }
+    }
+
+  </script>
+</body>
+</html>

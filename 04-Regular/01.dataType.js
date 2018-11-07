@@ -23,7 +23,6 @@ console.log(Object.prototype.toString.call(null));                    // "[objec
 console.log(Object.prototype.toString.call({a: 2}));                  // "[object Object]"
 console.log(Object.prototype.toString.call([1,2]));                   // "[object Array]"
 console.log(Object.prototype.toString.call(function aa() {}));        // "[object Function]"
-console.log(Object.prototype.toString.call(function aa() {}));        // "[object Function]"
 
 
 console.log([1,2,3].toString());                      // "1,2,3"
