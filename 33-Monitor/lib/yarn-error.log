@@ -1,0 +1,41 @@
+Arguments: 
+  /Users/liuxuan/.nvm/versions/node/v10.10.0/bin/node /Users/liuxuan/.nvm/versions/node/v10.10.0/bin/yarn add roolup rollup-plugin-babel @babel/core @babel/preset-env -D
+
+PATH: 
+  /Users/liuxuan/.nvm/versions/node/v10.10.0/bin:/Users/liuxuan/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.10.1
+
+Node version: 
+  10.10.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.npm.taobao.org/roolup: Not found
+      at Request.params.callback [as _callback] (/Users/liuxuan/.nvm/versions/node/v10.10.0/lib/node_modules/yarn/lib/cli.js:61073:18)
+      at Request.self.callback (/Users/liuxuan/.nvm/versions/node/v10.10.0/lib/node_modules/yarn/lib/cli.js:120166:22)
+      at Request.emit (events.js:182:13)
+      at Request.<anonymous> (/Users/liuxuan/.nvm/versions/node/v10.10.0/lib/node_modules/yarn/lib/cli.js:121138:10)
+      at Request.emit (events.js:182:13)
+      at IncomingMessage.<anonymous> (/Users/liuxuan/.nvm/versions/node/v10.10.0/lib/node_modules/yarn/lib/cli.js:121060:12)
+      at Object.onceWrapper (events.js:273:13)
+      at IncomingMessage.emit (events.js:187:15)
+      at endReadableNT (_stream_readable.js:1092:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
+
+npm manifest: 
+  {
+    "name": "lib",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
