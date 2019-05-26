@@ -1,0 +1,98 @@
+#!/usr/bin/env node
+// 核心处理命令行
+const program = require('commander');
+// 处理当用户进行版本号控制的时候
+const printer = require('@darkobits/lolcatjs');
+// shell
+const shelljs = require('shelljs');
+// 跟用户发生对话
+const chalk = require('chalk');
+// 跟用户进行交互
+const inquirer = require('inquirer');
+// loading的模块
+const ora = require('ora');
+// 需要准备的模板文件
+const template = 'direct:https://github.com/leocoder351/graphql-demo.git';
+// 专门去下载git仓库
+const download = require('download-git-repo');
+// 获取用户的目录
+const userHome = require('user-home');
+
+const input = [
+  "                           ",
+  "                       ",
+  "                 ,---,     ",
+  "        ,---,  .'  .' `\   ",
+  "       /_ ./|,---.'     \  ",
+  " ,---, |  ' :|   |  .`\  | ",
+  "/___/ \.  : |:   : |  '  | ",
+  " .  \  \ ,' '|   ' '  ;  : ",
+  "  \  ;  `  ,''   | ;  .  | ",
+  "   \  \    ' |   | :  |  ' ",
+  "    '  \   | '   : | /  ;  ",
+  "     \  ;  ; |   | '` ,/   ",
+  "      :  \  \;   :  .'     ",
+  "       \  ' ;|   ,.'       ",
+  "        `--` '---'         ",
+  "                           ",
+  "京城一灯脚手架"
+].join("\n");
+
+program.version(printer.default.fromString(input), "-v, --version");
+
+const binHandler = {
+  init() {
+    inquirer
+      .prompt([
+        {
+          type: 'text',
+          message: '请输入文件夹名称',
+          name: 'dirname'
+        },
+        {
+          type: 'list',
+          message: '请选择对应语言',
+          choices: ['TypeScript', 'EcmaScript'],
+          name: 'kind'
+        }
+      ])
+      .then(answers => {
+        const __dirname = answers.dirname;
+        if (__dirname) {
+          const spinner = ora('下载初始化模板...');
+          spinner.start();
+          // 创建文件夹
+          const _projectPath = `${userHome}/${__dirname}`;
+          shelljs.cd(`${userHome}`);
+          shelljs.rm('-rf', _projectPath);
+          shelljs.mkdir(__dirname);
+          // 下载github项目
+          
+          download(template, _projectPath, {clone: true}, err => {
+            spinner.stop();
+            if (err) {
+              console.error('下载失败', err.message.trim());
+            } else {
+              // 要把用户整体安装过的项目进行核心数据的替换
+              shelljs.sed('-i', 'yd-vue-kernel', __dirname, _projectPath+'/package.json');
+              console.log(chalk.green('项目创建成功'));
+            }
+          });
+        }
+
+      })
+  }
+};
+program
+  .usage('[cmd] <options>')
+  .arguments('<cmd> [env]')
+  .action((cmd, otherParms) => {
+    const handler = binHandler[cmd];
+    if (typeof handler === 'undefined') {
+      console.log(`${chalk.yellow('非常遗憾')}【${chalk.red(cmd)}】${chalk.yellow('暂未开发')}`);
+      process.exit(1);
+    } else {
+      handler(otherParms);
+    }
+  })
+program.parse(process.argv);

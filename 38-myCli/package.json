@@ -1,0 +1,28 @@
+{
+  "name": "38-myCli",
+  "version": "1.0.0",
+  "description": "",
+  "bin": {
+    "yd": "./bin/yd"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@darkobits/lolcatjs": "3.1.2",
+    "chalk": "2.4.2",
+    "commander": "2.20.0",
+    "download-git-repo": "1.1.0",
+    "inquirer": "6.3.1",
+    "ora": "3.4.0",
+    "shelljs": "0.8.3",
+    "user-home": "2.0.0"
+  },
+  "devDependencies": {
+    "vue-cli": "2.9.6"
+  }
+}
