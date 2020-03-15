@@ -7,7 +7,7 @@
     "dev": "webpack --mode development"
   },
   "devDependencies": {
-    "acorn": "^6.0.2",
+    "acorn": "^6.4.1",
     "acorn-walk": "^6.1.0",
     "markdown-loader": "^4.0.0",
     "tapable": "^1.1.0",
